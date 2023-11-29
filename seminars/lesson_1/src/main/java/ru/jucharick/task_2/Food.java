@@ -22,5 +22,4 @@ public interface Food extends Thing{
      * @return Наличие углеводов
      */
     boolean getCarbohydrates();
-
 }

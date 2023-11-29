@@ -96,7 +96,5 @@ public class Cart <T extends Food>{
             System.out.println("Корзина сбалансирована по БЖУ.");
         else
             System.out.println("Невозможно сбалансировать корзину по БЖУ.");
-
     }
-
 }

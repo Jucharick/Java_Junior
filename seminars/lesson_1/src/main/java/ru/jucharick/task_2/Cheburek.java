@@ -23,6 +23,4 @@ public class Cheburek implements SemiFinishedFood{
     public String getName() {
         return "Чебурек";
     }
-
-
 }

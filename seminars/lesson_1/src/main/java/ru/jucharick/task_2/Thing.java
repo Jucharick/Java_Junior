@@ -10,5 +10,4 @@ public interface Thing {
      * @return наименование вещи
      */
     String getName();
-
 }
