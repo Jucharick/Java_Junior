@@ -65,6 +65,9 @@ public class Cart <T extends Food>{
                 break;
         }
 
+        //foodstuffs.stream().forEach(food -> food.getProteins()? );
+
+
         if (proteins && fats && carbohydrates)
         {
             System.out.println("Корзина уже сбалансирована по БЖУ.");
@@ -91,6 +94,7 @@ public class Cart <T extends Food>{
             if (proteins && fats && carbohydrates)
                 break;
         }
+
 
         if (proteins && fats && carbohydrates)
             System.out.println("Корзина сбалансирована по БЖУ.");
