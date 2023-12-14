@@ -1,9 +1,11 @@
 package ru.jucharick;
 
+import java.beans.Transient;
 import java.io.Externalizable;
 import java.io.IOException;
 import java.io.ObjectInput;
 import java.io.ObjectOutput;
+import java.util.List;
 
 public class Student implements Externalizable {
     //region Поля
@@ -25,15 +27,18 @@ public class Student implements Externalizable {
     /**
      * Средний балл
      */
-    private transient double GPA;
+    private  double gpa;
     //endregion
 
     //region Конструкторы
-    public Student(String name, String surname, int age, double GPA) {
+    public Student(String name, String surname, int age, double gpa) {
         this.name = name;
         this.surname = surname;
         this.age = age;
-        this.GPA = GPA;
+        this.gpa = gpa;
+    }
+
+    public Student() {
     }
     //endregion
 
@@ -51,7 +56,7 @@ public class Student implements Externalizable {
     }
 
     public double getGPA() {
-        return GPA;
+        return gpa;
     }
     //endregion
 
@@ -60,8 +65,8 @@ public class Student implements Externalizable {
     public void writeExternal(ObjectOutput out) throws IOException {
         out.writeObject(name);
         out.writeObject(surname);
-        out.writeObject(age);
-        out.writeObject(GPA);
+        out.writeInt(age);
+        out.writeDouble(gpa);
     }
 
     @Override
@@ -69,7 +74,7 @@ public class Student implements Externalizable {
         name = (String) in.readObject();
         surname = (String) in.readObject();
         age = in.readInt();
-        GPA = in.readDouble();
+        gpa = in.readDouble();
     }
     //endregion
 }

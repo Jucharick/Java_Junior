@@ -17,22 +17,25 @@ import static ru.jucharick.Journal.*;
 public class Program {
     public static void main(String[] args) {
         List<Student> students;
-        File f = new File(FILE_JSON);
+        File f = new File(FILE_XML);
         if (f.exists() && !f.isDirectory())
-            students = loadJournalFromFile(FILE_JSON);
+            students = loadJournalFromFile(FILE_XML);
         else
             students = prepareStudents();
         Journal.saveJournalToFile(FILE_JSON, students);
         Journal.saveJournalToFile(FILE_BIN, students);
         Journal.saveJournalToFile(FILE_XML, students);
+
+        displayJournal(students);
     }
 
-    static List<Student> prepareStudents()
-    {
+    public static List<Student> prepareStudents() {
         ArrayList<Student> list = new ArrayList<>();
         list.add(new Student("Иван","Иванов", 21, 4.33));
         list.add(new Student("Петр","Петров", 18, 3.75));
         list.add(new Student("Родион","Раскольников", 27, 3.93));
+        list.add(new Student("Остап","Бендер", 27, 4.50));
+        list.add(new Student("Бильбо","Бэггинс", 135, 5));
         return list;
     }
 }

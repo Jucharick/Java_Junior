@@ -9,13 +9,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Journal {
+    //region Поля
     public static final String FILE_JSON = "students_journal.json";
     public static final String FILE_BIN = "students_journal.bin";
     public static final String FILE_XML = "students_journal.xml";
 
     private static final ObjectMapper objectMapper = new ObjectMapper();
     private static final XmlMapper xmlMapper = new XmlMapper();
+    //endregion
 
+    //region Методы
     public static void saveJournalToFile(String fileName, List<Student> students) {
         try {
             if (fileName.endsWith(".json")) {
@@ -55,4 +58,15 @@ public class Journal {
         return students;
     }
 
+    public static void displayJournal(List<Student> students) {
+        System.out.println("Список студентов:");
+        for (int i = 0; i < students.size(); i++) {
+            Student student = students.get(i);
+            System.out.println((i + 1) + ".  Имя: " + student.getName() +
+                                         " Фамилия: " + student.getSurname() +
+                                         " Возраст: " + student.getAge() +
+                                         " Средний балл: " + student.getGPA());
+        }
+    }
+    //endregion
 }
