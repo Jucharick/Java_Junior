@@ -24,7 +24,7 @@ public class Program {
 
     public static void main(String[] args) {
 
-        String url = "jdbc:mysql://students.db:3306/";
+        String url = "jdbc:mysql://localhost:3360/";
         String user = "root";
         String password = "password";
 
@@ -72,9 +72,9 @@ public class Program {
 
 
             // Удаление данных
-            for (var student: students)
-                deleteData(connection, student.getId());
-            System.out.println("Delete data successfully");
+//            for (var student: students)
+//                deleteData(connection, student.getId());
+//            System.out.println("Delete data successfully");
 
             // Закрытие соединения
             //connection.close();
@@ -88,6 +88,7 @@ public class Program {
 
     //region Вспомогательные методы
 
+    // создание схемы
     private static void createDatabase(Connection connection) throws SQLException {
         String createDatabaseSQL =  "CREATE DATABASE IF NOT EXISTS studentsDB;";
         try (PreparedStatement statement = connection.prepareStatement(createDatabaseSQL)) {
@@ -102,6 +103,7 @@ public class Program {
         }
     }
 
+    // создание таблицы
     private static void createTable(Connection connection) throws SQLException {
         String createTableSQL = "CREATE TABLE IF NOT EXISTS students (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), age INT);";
         try (PreparedStatement statement = connection.prepareStatement(createTableSQL)) {
