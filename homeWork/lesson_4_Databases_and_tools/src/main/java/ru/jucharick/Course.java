@@ -14,11 +14,24 @@ public class Course {
         this.duration = duration;
     }
 
+    public Course(String title, int duration) {
+        this.title = title;
+        this.duration = duration;
+    }
+
     public Course() {
     }
     //endregion
 
     //region Методы
+    public void updateTitle(String title){
+        this.title = title;
+    }
+
+    public void updateDuration(int duration){
+        this.duration = duration;
+    }
+
     public int getId() {
         return id;
     }
@@ -52,6 +65,4 @@ public class Course {
                 '}';
     }
     //endregion
-
-
 }
