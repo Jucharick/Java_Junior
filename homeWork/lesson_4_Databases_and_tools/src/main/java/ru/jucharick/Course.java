@@ -1,0 +1,57 @@
+package ru.jucharick;
+
+public class Course {
+    //region Поля
+    private int id;
+    private String title;
+    private int duration;
+    //endregion
+
+    //region конструкторы
+    public Course(int id, String title, int duration) {
+        this.id = id;
+        this.title = title;
+        this.duration = duration;
+    }
+
+    public Course() {
+    }
+    //endregion
+
+    //region Методы
+    public int getId() {
+        return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public int getDuration() {
+        return duration;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setDuration(int duration) {
+        this.duration = duration;
+    }
+
+    @Override
+    public String toString() {
+        return "Course{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", duration=" + duration +
+                '}';
+    }
+    //endregion
+
+
+}
