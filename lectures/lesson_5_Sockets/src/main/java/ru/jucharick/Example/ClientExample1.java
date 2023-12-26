@@ -1,4 +1,4 @@
-package ru.jucharick;
+package ru.jucharick.Example;
 
 import java.io.IOException;
 import java.net.InetAddress;
