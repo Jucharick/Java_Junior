@@ -30,36 +30,61 @@ public class Program {
             // Создание объекта
             Course course1 = new Course("Java_Junior", 6);
             session.save(course1);
-            System.out.println("Object student save successfully");
+            System.out.println("Object course save successfully");
 
             Course course2 = new Course("JDK", 8);
-            session.save(course1);
-            System.out.println("Object student save successfully");
+            session.save(course2);
+            System.out.println("Object course save successfully");
 
             Course course3 = new Course("Java Core", 9);
-            session.save(course1);
-            System.out.println("Object student save successfully");
+            session.save(course3);
+            System.out.println("Object course save successfully");
 
             Course course4 = new Course("Framework Spring", 5);
-            session.save(course1);
-            System.out.println("Object student save successfully");
+            session.save(course4);
+            System.out.println("Object course save successfully");
+
+            Course course5 = new Course("JDK", 8);
+            session.save(course5);
+            System.out.println("Object course save successfully");
+
+            session.getTransaction().commit();
+
+            // Создание сессии
+            Session session_1 = sessionFactory.getCurrentSession();
+            // Начало транзакции
+            session_1.beginTransaction();
 
             // Чтение объекта из базы данных
-            Course retrievedCourse = session.get(Course.class, course2.getId());
-            System.out.println("Object student retrieved successfully");
-            System.out.println("Retrieved student object: " + retrievedCourse);
+            Course retrievedCourse = session_1.get(Course.class, course2.getId());
+            System.out.println("Object course retrieved successfully");
+            System.out.println("Retrieved course object: " + retrievedCourse);
+
+            session_1.getTransaction().commit();
+
+            // Создание сессии
+            Session session_2 = sessionFactory.getCurrentSession();
+            // Начало транзакции
+            session_2.beginTransaction();
 
             // Обновление объекта
             retrievedCourse.updateTitle("Java Development Kit");
             retrievedCourse.updateDuration(10);
-            session.update(retrievedCourse);
-            System.out.println("Object student update successfully");
+            session_2.update(retrievedCourse);
+            System.out.println("Object course update successfully");
 
+            session_2.getTransaction().commit();
 
-            session.delete(retrievedCourse);
-            System.out.println("Object student delete successfully");
+            // Создание сессии
+            Session session_3 = sessionFactory.getCurrentSession();
+            // Начало транзакции
+            session_3.beginTransaction();
 
-            session.getTransaction().commit();
+            Course deleteCourse = session_3.get(Course.class, course5.getId());
+            session_3.delete(deleteCourse);
+            System.out.println("Object course delete successfully");
+
+            session_3.getTransaction().commit();
         }
         catch (Exception e){
             e.printStackTrace();

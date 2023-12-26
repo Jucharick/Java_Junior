@@ -2,10 +2,10 @@ package ru.jucharick;
 
 import java.util.Collection;
 
-public interface Repository<T, TId> {
-    void add(T item);
-    void update(T item);
-    void delete(T item);
-    T getById(TId id);
-    Collection<T> getAll();
+public interface Repository {
+    void add(Course item);
+    void update(Course item);
+    void delete(Course item);
+    Course getById(Integer id);
+    Collection<Course> getAll();
 }

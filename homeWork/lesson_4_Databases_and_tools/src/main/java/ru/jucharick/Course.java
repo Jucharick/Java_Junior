@@ -1,7 +1,13 @@
 package ru.jucharick;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "courses")
 public class Course {
     //region Поля
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String title;
     private int duration;
