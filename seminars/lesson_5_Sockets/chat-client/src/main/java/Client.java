@@ -1,4 +1,3 @@
-package ru.jucharick.chat_client;
 
 import java.io.*;
 import java.net.Socket;
@@ -82,4 +81,3 @@ public class Client {
         }
     }
 }
-

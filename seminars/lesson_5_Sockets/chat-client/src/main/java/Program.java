@@ -1,5 +1,3 @@
-package ru.jucharick.chat_client;
-
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.Socket;
@@ -32,4 +30,5 @@ public class Program {
         }
     }
 }
+
 

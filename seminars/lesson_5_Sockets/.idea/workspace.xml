@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="02204a4f-ab41-49a7-bd65-8f31ed13d68c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations/Server.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-client/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-client/src/main/java/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-client/src/main/java/Program.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-server/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-server/src/main/java/ClientManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-server/src/main/java/Program.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-server/src/main/java/Server.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lesson_5_Sockets.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Program.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/jucharick/chat_client/Client.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/jucharick/chat_client/Program.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/jucharick/chat_server/ClientManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/jucharick/chat_server/Program.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/jucharick/chat_server/Server.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="workspaceImportEnabled" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2aBDjaRTPrAQkTR6kwiidD8xKML" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "jdk.selected.JAVA_MODULE": "jbr-17"
+  }
+}]]></component>
+  <component name="RunManager" selected="Compound.Chat-demo">
+    <configuration name="Client-2" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Program" />
+      <module name="chat-client" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Client-3" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Program" />
+      <module name="chat-client" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Client-1" />
+      <item itemvalue="Application.Client-2" />
+      <item itemvalue="Application.Client-3" />
+      <item itemvalue="Application.Server" />
+      <item itemvalue="Compound.Chat-demo" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="02204a4f-ab41-49a7-bd65-8f31ed13d68c" name="Changes" comment="" />
+      <created>1703783219567</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1703783219567</updated>
+    </task>
+    <servers />
+  </component>
+</project>

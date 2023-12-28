@@ -1,5 +1,3 @@
-package ru.jucharick.chat_server;
-
 import java.io.*;
 import java.net.Socket;
 import java.util.ArrayList;
