@@ -8,6 +8,7 @@ public class ClientManager implements Runnable {
     private BufferedReader bufferedReader;
     private BufferedWriter bufferedWriter;
     private String name;
+    private static final String toNick = "@";
 
     public final static ArrayList<ClientManager> clients = new ArrayList<>();
 
@@ -24,8 +25,6 @@ public class ClientManager implements Runnable {
         catch (IOException e){
             closeEverything(socket, bufferedReader, bufferedWriter);
         }
-
-
     }
 
     @Override
@@ -35,11 +34,6 @@ public class ClientManager implements Runnable {
         while (socket.isConnected()) {
             try {
                 massageFromClient = bufferedReader.readLine();
-                /*if (massageFromClient == null){
-                    // для  macOS
-                    closeEverything(socket, bufferedReader, bufferedWriter);
-                    break;
-                }*/
                 broadcastMessage(massageFromClient);
             }
             catch (IOException e){
@@ -50,18 +44,32 @@ public class ClientManager implements Runnable {
     }
 
     private void broadcastMessage(String message){
-        for (ClientManager client: clients) {
-            try {
-                if (!client.name.equals(name)) {
-                    client.bufferedWriter.write(message);
-                    client.bufferedWriter.newLine();
-                    client.bufferedWriter.flush();
+//        if (message.startsWith(toNick)) {
+//            String to = message.split(" ")[0].substring(1);
+//            for (ClientManager client : clients) {
+//                try {
+//                    if (client.name.equals(to)) {
+//                        client.bufferedWriter.write(name + ": " + message + to);
+//                        client.bufferedWriter.newLine();
+//                        client.bufferedWriter.flush();
+//                    }
+//                } catch (IOException e) {
+//                    closeEverything(socket, bufferedReader, bufferedWriter);
+//                }
+//            }
+//        } else {
+            for (ClientManager client : clients) {
+                try {
+                    if (!client.name.equals(name)) { // не дублируем сообщение клиента в собственное окно
+                        client.bufferedWriter.write(message);
+                        client.bufferedWriter.newLine();
+                        client.bufferedWriter.flush();
+                    }
+                } catch (IOException e) {
+                    closeEverything(socket, bufferedReader, bufferedWriter);
                 }
             }
-            catch (IOException e){
-                closeEverything(socket, bufferedReader, bufferedWriter);
-            }
-        }
+ //       }
     }
 
 
@@ -91,6 +99,5 @@ public class ClientManager implements Runnable {
         System.out.println(name + " покинул чат.");
         broadcastMessage("Server: " + name + " покинул чат.");
     }
-
 }
 
