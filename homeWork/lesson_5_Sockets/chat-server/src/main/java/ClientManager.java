@@ -1,6 +1,7 @@
 import java.io.*;
 import java.net.Socket;
-import java.util.ArrayList;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class ClientManager implements Runnable {
 
@@ -8,7 +9,6 @@ public class ClientManager implements Runnable {
     private BufferedReader bufferedReader;
     private BufferedWriter bufferedWriter;
     private String name;
-    private static final String toNick = "@";
 
     public final static ArrayList<ClientManager> clients = new ArrayList<>();
 
@@ -43,24 +43,35 @@ public class ClientManager implements Runnable {
         }
     }
 
-    private void broadcastMessage(String message){
-//        if (message.startsWith(toNick)) {
-//            String to = message.split(" ")[0].substring(1);
-//            for (ClientManager client : clients) {
-//                try {
-//                    if (client.name.equals(to)) {
-//                        client.bufferedWriter.write(name + ": " + message + to);
-//                        client.bufferedWriter.newLine();
-//                        client.bufferedWriter.flush();
-//                    }
-//                } catch (IOException e) {
-//                    closeEverything(socket, bufferedReader, bufferedWriter);
-//                }
-//            }
-//        } else {
+    /**
+     * Отправка сообщения всем слушателям
+     *
+     * @param message сообщение
+     */
+    private void broadcastMessage(String message) {
+        String[] parts = message.split(" ");
+        if (parts.length > 1 && parts[1].charAt(0) == '@' &&
+                clients.stream().anyMatch(client -> client.name.equals(parts[1].substring(1)))) {
+            var cln = clients.stream().filter(client -> client.name.equals(parts[1].substring(1))).findFirst();
+            if (cln.isPresent()) {
+                parts[1] = null;
+                String newMessage = Arrays.stream(parts)
+                        .filter(s -> s != null && !s.isEmpty())
+                        .collect(Collectors.joining(" "));
+                try {
+                    cln.get().bufferedWriter.write(newMessage);
+                    cln.get().bufferedWriter.newLine();
+                    cln.get().bufferedWriter.flush();
+                } catch (IOException e) {
+                    closeEverything(socket, bufferedReader, bufferedWriter);
+                }
+            }
+        } else {
             for (ClientManager client : clients) {
                 try {
-                    if (!client.name.equals(name)) { // не дублируем сообщение клиента в собственное окно
+                    // Если клиент не равен по наименованию клиенту-отправителю,
+                    // отправим сообщение (не дублируем свои сообщения)
+                    if (!client.name.equals(name) && message != null) {
                         client.bufferedWriter.write(message);
                         client.bufferedWriter.newLine();
                         client.bufferedWriter.flush();
@@ -69,7 +80,7 @@ public class ClientManager implements Runnable {
                     closeEverything(socket, bufferedReader, bufferedWriter);
                 }
             }
- //       }
+        }
     }
 
 
